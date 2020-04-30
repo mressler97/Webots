@@ -34,7 +34,7 @@ Robot {
       ]
       endPoint Solid {
         translation 0.06 0 0.05
-        rotation 0 0 1 1.5708
+        rotation 3.224673290405137e-12 -3.224685135313279e-12 1 1.5708
         children [
           DEF WHEEL Shape {
             appearance PBRAppearance {
@@ -65,7 +65,7 @@ Robot {
       ]
       endPoint Solid {
         translation -0.06 0 0.05
-        rotation 0 0 1 1.5708
+        rotation -3.224075820797946e-12 3.2240876635114546e-12 1 1.5708
         children [
           USE WHEEL
         ]
@@ -86,7 +86,7 @@ Robot {
       ]
       endPoint Solid {
         translation 0.06 0 -0.05
-        rotation 0 0 1 1.5708
+        rotation -3.2244787348621567e-12 3.224490579055655e-12 1 1.5708
         children [
           USE WHEEL
         ]
@@ -107,7 +107,7 @@ Robot {
       ]
       endPoint Solid {
         translation -0.06 0 -0.05
-        rotation 0 0 1 1.5708
+        rotation -3.224519908376569e-12 3.2245317527213047e-12 1 1.5708
         children [
           USE WHEEL
         ]
@@ -157,7 +157,7 @@ Robot {
     density -1
     mass 1
   }
-  controller "4_wheels_collision_avoidance"
+  controller "final_controller"
 }
 RectangleArena {
   floorSize 1 3
