@@ -12,6 +12,8 @@ TexturedBackgroundLight {
 Robot {
   translation -0.0148722 0.05 -1.31882
   children [
+    Compass {
+    }
     Pen {
     }
     DEF BODY Shape {

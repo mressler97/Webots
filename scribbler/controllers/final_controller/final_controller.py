@@ -1,12 +1,28 @@
 #Nicholas Dzomba and Michael Resller
 #CSCI 455 Final Project Controller
 
-from controller import Robot
+from controller import Robot, Compass
+import math
+from math import pi as M_PI
 
 TIME_STEP = 64
 robot = Robot()
+compass = Compass("compass")
+
 ds = []
 dsNames = ['ds_right', 'ds_left']
+
+compass.enable(TIME_STEP)
+
+def get_bearing_in_degrees():
+    north = compass.getValues()
+    rad = math.atan2(north[0], north[2])
+    bearing = (rad - 1.5708) / M_PI * 180.0
+    if (bearing < 0.0):
+        bearing = bearing + 360.0;
+    return bearing
+    
+
 for i in range(2):
     ds.append(robot.getDistanceSensor(dsNames[i]))
     ds[i].enable(TIME_STEP)
@@ -32,3 +48,8 @@ while robot.step(TIME_STEP) != -1:
     wheels[1].setVelocity(rightSpeed)
     wheels[2].setVelocity(leftSpeed)
     wheels[3].setVelocity(rightSpeed)
+    dir = get_bearing_in_degrees() 
+    print(dir)
+    
+
+   
