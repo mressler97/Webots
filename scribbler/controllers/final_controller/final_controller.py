@@ -48,8 +48,8 @@ while robot.step(TIME_STEP) != -1:
     wheels[1].setVelocity(rightSpeed)
     wheels[2].setVelocity(leftSpeed)
     wheels[3].setVelocity(rightSpeed)
-    dir = get_bearing_in_degrees() 
-    print(dir)
+    direction = get_bearing_in_degrees() 
+    print(direction)
     
 
    
