@@ -22,8 +22,8 @@ while robot.step(TIME_STEP) != -1:
     rightSpeed = 1.0
     if avoidObstacleCounter > 0:
         avoidObstacleCounter -= 1
-        leftSpeed = 1.0
-        rightSpeed = -1.0
+        leftSpeed = 0.0
+        rightSpeed = 0.0
     else:  # read sensors
         for i in range(2):
             if ds[i].getValue() < 950.0:

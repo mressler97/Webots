@@ -11,7 +11,6 @@ TexturedBackgroundLight {
 }
 Robot {
   translation -0.0148722 0.05 -1.31882
-  rotation 0 1 0 0.0912173
   children [
     Pen {
     }
