@@ -33,11 +33,20 @@ for i in range(4):
     wheels[i].setPosition(float('inf'))
     wheels[i].setVelocity(0.0)
 avoidObstacleCounter = 0
+
 finstate = 0
-turnCounter = 2
+start_state = 1
+turnCounter = 0.0
+
 while robot.step(TIME_STEP) != -1:
     direction = get_bearing_in_degrees()
     print(direction)
+    if turnCounter <= 1:
+        leftSpeed = 2.0
+        rightSpeed = 2.0
+        turnCounter += 0.025
+    if 1 < turnCounter < 2: 
+        turnCounter = 2
     if 1 < turnCounter < 10:
         if turnCounter % 2 == 0:
             leftSpeed = 2.4
@@ -63,8 +72,8 @@ while robot.step(TIME_STEP) != -1:
                     
                 
     else:
-        leftSpeed = 2
-        rightSpeed = 2
+        leftSpeed = 2.0
+        rightSpeed = 2.0
     if avoidObstacleCounter > 0:
         avoidObstacleCounter -= 1
         leftSpeed = 0.0
