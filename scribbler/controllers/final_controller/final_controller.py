@@ -41,25 +41,25 @@ turnCounter = 0.0
 while robot.step(TIME_STEP) != -1:
     direction = get_bearing_in_degrees()
     print(direction)
-    if turnCounter <= 1:
+    if turnCounter <= 1: #go straight
         leftSpeed = 2.0
         rightSpeed = 2.0
-        turnCounter += 0.025
+        turnCounter += 0.02
     if 1 < turnCounter < 2: 
         turnCounter = 2
-    if 1 < turnCounter < 10:
+    if 1 < turnCounter < 10: #make right turn
         if turnCounter % 2 == 0:
             leftSpeed = 2.4
             rightSpeed = 0.75
             if 90 > direction > 45:
                 turnCounter += 1
                           
-        else:
+        else: # make left turn
             if finstate == 0:
                 leftSpeed = 0.75
                 rightSpeed = 2.4
             else:
-                if direction < 5:
+                if direction >= 358:
                     turnCounter = 100
                 else:
                     leftSpeed = 2.4
@@ -71,14 +71,14 @@ while robot.step(TIME_STEP) != -1:
                     finstate = 1
                     
                 
-    else:
+    else: # go straight again
         leftSpeed = 2.0
         rightSpeed = 2.0
-    if avoidObstacleCounter > 0:
+    if avoidObstacleCounter > 0: # stop before wall
         avoidObstacleCounter -= 1
         leftSpeed = 0.0
         rightSpeed = 0.0
-    else:  # read sensors
+    else:  # 
         for i in range(2):
             if ds[i].getValue() < 950.0:
                 avoidObstacleCounter = 100
